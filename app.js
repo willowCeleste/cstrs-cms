@@ -1,5 +1,5 @@
 require('apostrophe')({
-  shortName: 'cstrs-api',
+  shortName: 'cstrs-cms',
   modules: {
     // Apostrophe module configuration
     // *******************************
