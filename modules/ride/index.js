@@ -35,7 +35,6 @@ module.exports = {
     return {
       get: {
         async byuser(req, res) {
-          console.log(req.query);
           const rides = await self.find(req, { userIds: req.query.id }).toArray();
           return res.json(rides);
         }

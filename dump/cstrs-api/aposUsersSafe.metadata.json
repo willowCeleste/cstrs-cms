@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":2,"key":{"_id":1},"name":"_id_","ns":"cstrs-api.aposUsersSafe"},{"v":2,"unique":true,"key":{"username":1},"name":"username_1","ns":"cstrs-api.aposUsersSafe"},{"v":2,"unique":true,"key":{"email":1},"name":"email_1","ns":"cstrs-api.aposUsersSafe","sparse":true}],"uuid":"1f8bf84b7e7e43688ce53789d1a18ef4"}

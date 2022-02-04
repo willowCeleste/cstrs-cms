@@ -40,8 +40,10 @@ require('apostrophe')({
     // Taxonomy Pieces
     coasterType: { extend: '@apostrophecms/piece-type' },
     coasterTrain: { extend: '@apostrophecms/piece-type' },
+    element: { extend: '@apostrophecms/piece-type' },
 
     // Modules
-    search: {}
+    search: {},
+    stats: {}
   }
 });

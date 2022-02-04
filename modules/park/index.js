@@ -81,8 +81,43 @@ module.exports = {
             value: state
           };
         })
+      },
+      _coasters: {
+        type: 'relationshipReverse',
+        withType: 'coaster',
+        reverseOf: '_park'
       }
     },
     group: {}
+  },
+  routes(self) {
+    return {
+      get: {
+        async park(req, res) {
+          try {
+            const result = await self.find(req, { _id: req.query.id }).project({ title: 1, _coasters: 1 }).toArray();
+            const park = result[0];
+            park._coasters = park._coasters.map(coaster => {
+              const imageUrl = self.apos.attachment.url(self.apos.image.first(coaster.images));
+              return {
+                _id: coaster._id,
+                title: coaster.title,
+                image: !imageUrl.endsWith('missing-icon.svg') ? imageUrl : null
+              };
+            });
+            return res.status(200).json({
+              success: true,
+              park
+            });
+          } catch (e) {
+            console.log(e);
+            return res.status(500).json({
+              success: false,
+              message: 'Internal server error'
+            });
+          }
+        }
+      }
+    };
   }
 };

@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":2,"key":{"_id":1},"name":"_id_","ns":"cstrs-api.aposCache"},{"v":2,"unique":true,"key":{"namespace":1,"key":1},"name":"namespace_1_key_1","ns":"cstrs-api.aposCache"},{"v":2,"key":{"expires":1},"name":"expires_1","ns":"cstrs-api.aposCache","expireAfterSeconds":0}],"uuid":"fe9428aa74774a9ab701af7af49b49b5"}

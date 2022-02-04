@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":2,"key":{"_id":1},"name":"_id_","ns":"cstrs-api.sessions"},{"v":2,"key":{"expires":1},"name":"expires_1","ns":"cstrs-api.sessions","expireAfterSeconds":0}],"uuid":"b7a005fa4b024e15b5b1541999eafdea"}

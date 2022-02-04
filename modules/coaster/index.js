@@ -75,6 +75,11 @@ module.exports = {
         type: 'relationship',
         label: 'Train',
         withType: 'coasterTrain'
+      },
+      _elements: {
+        type: 'relationship',
+        label: 'Elements',
+        withType: 'element'
       }
     },
     group: {
@@ -94,7 +99,6 @@ module.exports = {
         async newest(req, res) {
           try {
             const sorted = await self.find(req, { title: 'Twisted Timbers' }, { title: 1 }).sort({ openedDate: -1 }).toArray();
-            console.log(sorted);
             return res.json(sorted);
           } catch (e) {
             console.log(e);
@@ -108,12 +112,16 @@ module.exports = {
           try {
             const id = req.query.id;
             const coaster = await self.find(req, { _id: id }).toObject();
+            let url;
+            if (coaster && coaster.images.items.length) {
+              url = self.apos.attachment.url(self.apos.image.first(coaster.images));
+            }
 
             return res.status(200).json({
               error: false,
               data: {
                 coasterId: id,
-                url: self.apos.attachment.url(self.apos.image.first(coaster.images))
+                url: url || ''
               }
             });
           } catch (e) {
